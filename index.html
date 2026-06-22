@@ -405,20 +405,21 @@
     </section>
 
     <!-- Раздел загрузки -->
+       <!-- Секция Скачивания -->
     <section id="download" class="download-section">
         <div class="container">
-            <div class="price-card glass-panel">
-                <h2>Получить Билд</h2>
-                <div class="cost">SHADOW FREE</div>
-                <div class="cost" style="font-size: 18px; color: #b3a5c7; margin-top: -15px;">0 РУБ / Навсегда</div>
+            <h2 class="section-title">Получить <span>Билд</span></h2>
+            <div class="glass-panel price-card">
+                <h2>SHADOW FREE</h2>
+                <div class="cost">0 РУБ / Навсегда</div>
+                
                 <div class="status-container">
-                    <span class="status-work status-badge">Основа: Undetected</span>
-                    <span class="status-error status-badge">Скачивание недоступно</span>
-                    <span class="status-error status-badge">Билд недоступен</span>
+                    <div class="status-badge status-work">Основа: Undetected</div>
+                    <div class="status-badge status-work">Скачивание доступно</div>
                 </div>
 
-                <!-- Изменённая кнопка: теперь она кликабельна и открывает модальное окно -->
-                <button id="downloadBtn" class="btn btn-disabled" style="cursor: pointer;">⚠️Доступ ограничен</button>
+                <!-- Укажите точное название вашего файла вместо shadow.zip -->
+                <a href="shadow.dll" class="btn" id="downloadBtn" download>Скачать билд</a>
             </div>
         </div>
     </section>
@@ -445,21 +446,12 @@
         const modalOverlay = document.getElementById('modalOverlay');
         const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-        // Открытие окна по клику на заблокированную кнопку
+          <script>
+        // Кнопка теперь работает напрямую и автоматически запускает скачивание файла из папки
+        const downloadBtn = document.getElementById('downloadBtn');
+        
         downloadBtn.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-        });
-
-        // Закрытие окна по клику на кнопку внутри него
-        modalCloseBtn.addEventListener('click', () => {
-            modalOverlay.classList.remove('active');
-        });
-
-        // Закрытие окна по клику на темную область вокруг него
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('active');
-            }
+            console.log("Загрузка билда запущена успешно.");
         });
     </script>
 
